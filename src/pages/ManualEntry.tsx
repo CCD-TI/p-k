@@ -141,11 +141,11 @@ export default function ManualEntry() {
     <div className="min-h-screen bg-background flex flex-col items-center px-4 py-8">
       <div className="w-full max-w-5xl">
         {/* Tipo de venta buttons */}
-        <div className="flex gap-3 mb-6">
+        <div className="grid grid-cols-2 gap-3 mb-6">
           <Button
             onClick={() => setTipo("COMPLETA")}
             variant={tipo === "COMPLETA" ? "default" : "outline"}
-            className={`flex-1 gap-2 h-14 text-base font-semibold transition-all ${
+            className={`gap-2 h-14 text-base font-semibold transition-all ${
               tipo === "COMPLETA"
                 ? "bg-primary text-primary-foreground shadow-lg scale-[1.02]"
                 : "hover:bg-accent"
@@ -155,9 +155,21 @@ export default function ManualEntry() {
             COMPLETA
           </Button>
           <Button
+            onClick={() => setTipo("DEUDA")}
+            variant={tipo === "DEUDA" ? "default" : "outline"}
+            className={`gap-2 h-14 text-base font-semibold transition-all ${
+              tipo === "DEUDA"
+                ? "bg-primary text-primary-foreground shadow-lg scale-[1.02]"
+                : "hover:bg-accent"
+            }`}
+          >
+            <AlertTriangle className="w-5 h-5" />
+            DEUDA
+          </Button>
+          <Button
             onClick={() => setTipo("FRACCIONADA")}
             variant={tipo === "FRACCIONADA" ? "default" : "outline"}
-            className={`flex-1 gap-2 h-14 text-base font-semibold transition-all ${
+            className={`gap-2 h-14 text-base font-semibold transition-all ${
               tipo === "FRACCIONADA"
                 ? "bg-primary text-primary-foreground shadow-lg scale-[1.02]"
                 : "hover:bg-accent"
@@ -165,6 +177,18 @@ export default function ManualEntry() {
           >
             <CreditCard className="w-5 h-5" />
             FRACCIONADA
+          </Button>
+          <Button
+            onClick={() => setTipo("SEPARACION DE VACANTE")}
+            variant={tipo === "SEPARACION DE VACANTE" ? "default" : "outline"}
+            className={`gap-2 h-14 text-sm font-semibold transition-all ${
+              tipo === "SEPARACION DE VACANTE"
+                ? "bg-primary text-primary-foreground shadow-lg scale-[1.02]"
+                : "hover:bg-accent"
+            }`}
+          >
+            <Bookmark className="w-5 h-5" />
+            SEPARACIÓN DE VACANTE
           </Button>
         </div>
 
