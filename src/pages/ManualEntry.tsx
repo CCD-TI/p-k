@@ -218,7 +218,7 @@ export default function ManualEntry() {
               </Card>
             )}
 
-            {tipo === "FRACCIONADA" && (
+            {(tipo === "FRACCIONADA" || tipo === "SEPARACION DE VACANTE") && (
               <>
                 <Card className="p-4 space-y-3 border-primary/30">
                   <span className="text-sm font-semibold text-foreground">1er Pago</span>
