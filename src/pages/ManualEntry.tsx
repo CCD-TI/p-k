@@ -186,8 +186,8 @@ export default function ManualEntry() {
                   <label className="text-sm font-medium text-foreground w-36 shrink-0">Estado</label>
                   <span className="text-sm font-semibold text-primary">PAGO</span>
                 </div>
-                <FieldRow emoji="📅" label="Fecha" value={form.fechaVentaCompleta} onChange={(v) => update("fechaVentaCompleta", v)} placeholder="31/3/2026" />
-                <FieldRow emoji="💰" label="Monto (S/)" value={form.montoVentaCompleta} onChange={(v) => update("montoVentaCompleta", v)} placeholder="S/ 430.00" />
+                <FieldRow emoji="📅" label="Fecha" value={form.fechaVentaCompleta} onChange={(v) => update("fechaVentaCompleta", v)} type="date" />
+                <FieldRow emoji="💰" label="Monto" value={form.montoVentaCompleta} onChange={(v) => update("montoVentaCompleta", v)} placeholder="S/ 430.00" />
               </Card>
             )}
 
