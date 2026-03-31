@@ -248,7 +248,7 @@ export default function ManualEntry() {
               <FieldRow emoji="🧑‍💼" label="Asesor" value={form.asesor} onChange={(v) => update("asesor", v)} />
             </Card>
 
-            {(tipo === "COMPLETA" || tipo === "DEUDA") && (
+            {tipo === "COMPLETA" && (
               <Card className="p-4 space-y-3 border-primary/30">
                 <span className="text-sm font-semibold text-foreground">{tipo === "COMPLETA" ? "Venta Completa" : "Deuda"}</span>
                 <div className="flex items-center gap-2">
