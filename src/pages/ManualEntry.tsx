@@ -72,7 +72,7 @@ function formatMessage(data: FormData, tipo: TipoVenta): string {
     lines.push("");
     if (data.estado2doPago) lines.push(`✅ *Estado 2do Pago:* ${data.estado2doPago}`);
     if (data.fecha2doPago) lines.push(`📅 *Fecha 2do Pago:* ${formatDateDisplay(data.fecha2doPago)}`);
-    if (data.monto2doPago) lines.push(`💰 *Monto 2do Pago:* ${data.monto2doPago}`);
+    if (data.monto2doPago) lines.push(`💰 *Monto 2do Pago:* S/ ${data.monto2doPago}`);
     lines.push("");
     lines.push("⚠️ *No se olvide la siguiente fecha de pago.*");
   }
