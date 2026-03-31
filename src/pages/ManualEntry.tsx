@@ -201,7 +201,7 @@ export default function ManualEntry() {
                     <span className="text-sm font-semibold text-primary">PAGO</span>
                   </div>
                   <FieldRow emoji="📅" label="Fecha 1er Pago" value={form.fecha1erPago} onChange={(v) => update("fecha1erPago", v)} type="date" />
-                  <FieldRow emoji="💰" label="Monto 1er Pago" value={form.monto1erPago} onChange={(v) => update("monto1erPago", v)} placeholder="S/ 200.00" />
+                  <FieldRow emoji="💰" label="Monto 1er Pago (S/)" value={form.monto1erPago} onChange={(v) => update("monto1erPago", v.replace(/[^\d.]/g, ""))} inputMode="decimal" placeholder="200.00" />
                 </Card>
                 <Card className="p-4 space-y-3 border-primary/30">
                   <span className="text-sm font-semibold text-foreground">2do Pago</span>
