@@ -34,12 +34,12 @@ const initialForm: FormData = {
   asesor: "",
   estadoVentaCompleta: "PAGO",
   fechaVentaCompleta: "",
-  montoVentaCompleta: "S/ 0.00",
+  montoVentaCompleta: "",
   fecha1erPago: "",
-  monto1erPago: "S/ 0.00",
+  monto1erPago: "",
   estado2doPago: "DEBE",
   fecha2doPago: "",
-  monto2doPago: "S/ 0.00",
+  monto2doPago: "",
 };
 function formatDateDisplay(dateStr: string): string {
   if (!dateStr) return "";
@@ -61,18 +61,18 @@ function formatMessage(data: FormData, tipo: TipoVenta): string {
   if (tipo === "COMPLETA") {
     lines.push(`✅ *Estado Venta Completa:* PAGO`);
     if (data.fechaVentaCompleta) lines.push(`📅 *Fecha Venta Completa:* ${formatDateDisplay(data.fechaVentaCompleta)}`);
-    if (data.montoVentaCompleta) lines.push(`💰 *Monto Venta Completa:* ${data.montoVentaCompleta}`);
+    if (data.montoVentaCompleta) lines.push(`💰 *Monto Venta Completa:* S/ ${data.montoVentaCompleta}`);
   } else {
     lines.push("");
     lines.push("📌 *Este es el monto del primer pago:*");
     lines.push("");
     lines.push(`✅ *Estado 1er Pago:* PAGO`);
     if (data.fecha1erPago) lines.push(`📅 *Fecha 1er Pago:* ${formatDateDisplay(data.fecha1erPago)}`);
-    if (data.monto1erPago) lines.push(`💰 *Monto 1er Pago:* ${data.monto1erPago}`);
+    if (data.monto1erPago) lines.push(`💰 *Monto 1er Pago:* S/ ${data.monto1erPago}`);
     lines.push("");
     if (data.estado2doPago) lines.push(`✅ *Estado 2do Pago:* ${data.estado2doPago}`);
     if (data.fecha2doPago) lines.push(`📅 *Fecha 2do Pago:* ${formatDateDisplay(data.fecha2doPago)}`);
-    if (data.monto2doPago) lines.push(`💰 *Monto 2do Pago:* ${data.monto2doPago}`);
+    if (data.monto2doPago) lines.push(`💰 *Monto 2do Pago:* S/ ${data.monto2doPago}`);
     lines.push("");
     lines.push("⚠️ *No se olvide la siguiente fecha de pago.*");
   }
@@ -187,7 +187,7 @@ export default function ManualEntry() {
                   <span className="text-sm font-semibold text-primary">PAGO</span>
                 </div>
                 <FieldRow emoji="📅" label="Fecha" value={form.fechaVentaCompleta} onChange={(v) => update("fechaVentaCompleta", v)} type="date" />
-                <FieldRow emoji="💰" label="Monto" value={form.montoVentaCompleta} onChange={(v) => update("montoVentaCompleta", v)} placeholder="S/ 430.00" />
+                <FieldRow emoji="💰" label="Monto (S/)" value={form.montoVentaCompleta} onChange={(v) => update("montoVentaCompleta", v.replace(/[^\d.]/g, ""))} inputMode="decimal" placeholder="430.00" />
               </Card>
             )}
 
@@ -201,7 +201,7 @@ export default function ManualEntry() {
                     <span className="text-sm font-semibold text-primary">PAGO</span>
                   </div>
                   <FieldRow emoji="📅" label="Fecha 1er Pago" value={form.fecha1erPago} onChange={(v) => update("fecha1erPago", v)} type="date" />
-                  <FieldRow emoji="💰" label="Monto 1er Pago" value={form.monto1erPago} onChange={(v) => update("monto1erPago", v)} placeholder="S/ 200.00" />
+                  <FieldRow emoji="💰" label="Monto 1er Pago (S/)" value={form.monto1erPago} onChange={(v) => update("monto1erPago", v.replace(/[^\d.]/g, ""))} inputMode="decimal" placeholder="200.00" />
                 </Card>
                 <Card className="p-4 space-y-3 border-primary/30">
                   <span className="text-sm font-semibold text-foreground">2do Pago</span>
@@ -218,7 +218,7 @@ export default function ManualEntry() {
                     </select>
                   </div>
                   <FieldRow emoji="📅" label="Fecha 2do Pago" value={form.fecha2doPago} onChange={(v) => update("fecha2doPago", v)} type="date" />
-                  <FieldRow emoji="💰" label="Monto 2do Pago" value={form.monto2doPago} onChange={(v) => update("monto2doPago", v)} placeholder="S/ 250.00" />
+                  <FieldRow emoji="💰" label="Monto 2do Pago (S/)" value={form.monto2doPago} onChange={(v) => update("monto2doPago", v.replace(/[^\d.]/g, ""))} inputMode="decimal" placeholder="250.00" />
                 </Card>
               </>
             )}
