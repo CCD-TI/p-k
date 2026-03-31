@@ -68,7 +68,7 @@ function formatMessage(data: FormData, tipo: TipoVenta): string {
     lines.push("");
     lines.push(`✅ *Estado 1er Pago:* PAGO`);
     if (data.fecha1erPago) lines.push(`📅 *Fecha 1er Pago:* ${formatDateDisplay(data.fecha1erPago)}`);
-    if (data.monto1erPago) lines.push(`💰 *Monto 1er Pago:* ${data.monto1erPago}`);
+    if (data.monto1erPago) lines.push(`💰 *Monto 1er Pago:* S/ ${data.monto1erPago}`);
     lines.push("");
     if (data.estado2doPago) lines.push(`✅ *Estado 2do Pago:* ${data.estado2doPago}`);
     if (data.fecha2doPago) lines.push(`📅 *Fecha 2do Pago:* ${formatDateDisplay(data.fecha2doPago)}`);
