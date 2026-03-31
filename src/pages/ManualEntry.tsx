@@ -217,8 +217,8 @@ export default function ManualEntry() {
                       <option value="PAGO">PAGO</option>
                     </select>
                   </div>
-                  <FieldRow emoji="📅" label="Fecha 2do Pago" value={form.fecha2doPago} onChange={(v) => update("fecha2doPago", v)} placeholder="30/4/2026" />
-                  <FieldRow emoji="💰" label="Monto 2do Pago (S/)" value={form.monto2doPago} onChange={(v) => update("monto2doPago", v)} placeholder="S/ 250.00" />
+                  <FieldRow emoji="📅" label="Fecha 2do Pago" value={form.fecha2doPago} onChange={(v) => update("fecha2doPago", v)} type="date" />
+                  <FieldRow emoji="💰" label="Monto 2do Pago" value={form.monto2doPago} onChange={(v) => update("monto2doPago", v)} placeholder="S/ 250.00" />
                 </Card>
               </>
             )}
