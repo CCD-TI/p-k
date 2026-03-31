@@ -50,6 +50,9 @@ function formatDateDisplay(dateStr: string): string {
 function formatMessage(data: FormData, tipo: TipoVenta): string {
   const lines: string[] = [];
 
+  lines.push("📋 *DATOS DE VALIDACIÓN*");
+  lines.push("");
+
   if (data.nombre) lines.push(`👤 *Nombre:* ${data.nombre}`);
   if (data.telefono) lines.push(`📱 *Teléfono:* ${data.telefono}`);
   if (data.dni) lines.push(`🪪 *DNI/CE:* ${data.dni}`);
@@ -58,7 +61,7 @@ function formatMessage(data: FormData, tipo: TipoVenta): string {
   if (data.asesor) lines.push(`🧑‍💼 *Asesor:* *${data.asesor}*`);
   lines.push(`📋 *Tipo Venta:* ${tipo}`);
 
-  if (tipo === "COMPLETA") {
+  if (tipo === "COMPLETA" || tipo === "DEUDA") {
     lines.push(`✅ *Estado Venta Completa:* PAGO`);
     if (data.fechaVentaCompleta) lines.push(`📅 *Fecha Venta Completa:* ${formatDateDisplay(data.fechaVentaCompleta)}`);
     if (data.montoVentaCompleta) lines.push(`💰 *Monto Venta Completa:* S/ ${data.montoVentaCompleta}`);
