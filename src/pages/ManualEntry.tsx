@@ -139,8 +139,16 @@ export default function ManualEntry() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-ccd-light via-background to-background flex flex-col items-center px-4 py-8">
       <div className="w-full max-w-5xl">
+        {/* Header with logo */}
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <img src={logoCcd} alt="CCD Logo" className="w-14 h-14 rounded-lg shadow-md object-cover" />
+          <div>
+            <h1 className="text-2xl font-bold text-ccd-navy tracking-tight">Sistema de Validación CCD</h1>
+            <p className="text-sm text-muted-foreground">Generador de mensajes WhatsApp</p>
+          </div>
+        </div>
         {/* Tipo de venta buttons */}
         <div className="grid grid-cols-2 gap-3 mb-6">
           <Button
